@@ -1,17 +1,28 @@
 <header class="p-3 mb-3 border-bottom" id="header_container">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a id="home_icon" href="/home-page" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <a id="home_icon" href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-heptagon-fill" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M7.779.052a.5.5 0 0 1 .442 0l6.015 2.97a.5.5 0 0 1 .267.34l1.485 6.676a.5.5 0 0 1-.093.415l-4.162 5.354a.5.5 0 0 1-.395.193H4.662a.5.5 0 0 1-.395-.193L.105 10.453a.5.5 0 0 1-.093-.415l1.485-6.676a.5.5 0 0 1 .267-.34L7.779.053z"/>
           </svg>
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+          <li><a href="/overview" class="nav-link px-2 link-secondary">Overview</a></li>
+          <li *ngIf="hasAccess"><a href="/inventory" class="nav-link px-2 link-dark">Inventory</a></li>
+          <li *ngIf="hasAccess"><a href="/customers" class="nav-link px-2 link-dark">Customers</a></li>
+          <li *ngIf="hasAccess"><a href="/products" class="nav-link px-2 link-dark">Products</a></li>
+          <!-- <li class="nav-link px-2 link-dark">
+            <div class="dropdown text-end">
+              <a id="ProductsButton" style="text-decoration: none; color: #000000;" data-bs-toggle="dropdown">Products</a>
+              <ul class="dropdown-menu text-small" aria-labelledby="ProductsButton">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </li> -->
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -19,7 +30,7 @@
         </form>
 
         <div class="dropdown text-end">
-          <a class="btn btn-primary" href="/sign-in-page" role="button">Sign In</a>
+          <a class="btn btn-primary" href="/sign-in" role="button">Sign In</a>
           <!-- <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
               <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
