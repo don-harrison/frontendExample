@@ -37,7 +37,7 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SecurityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
