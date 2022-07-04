@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SecurityService } from '../services/security.service';
+import { SecurityService } from '../../services/security.service';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +10,21 @@ export class HeaderComponent implements OnInit {
 
   constructor(private securityService: SecurityService) { }
 
-  hasAccess: boolean = this.securityService.lastRoleArray.filter(role => role == "employee").length > 0;
+  private hasAccess: boolean = false;
 
   ngOnInit(): void {
-    console.log(this.hasAccess);
     this.securityService.getRoles().subscribe({
       next: (roles) => {
-        console.log(roles);
         this.hasAccess = (roles.filter(role => role == "employee").length > 0);
-        console.log(this.hasAccess);
       }
     })
+  }
+
+  isLoggedIn(): boolean{
+    return this.hasAccess;
+  }
+
+  signOut(){
+    this.securityService.signOut();
   }
 }

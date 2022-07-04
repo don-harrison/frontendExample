@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomersPageComponent } from './customers-page.component';
+import { ProductsPageComponent } from './products-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    CustomersPageComponent
+    ProductsPageComponent
   ],
   imports: [
     CommonModule,
@@ -16,4 +16,4 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ]
 })
-export class CustomersPageModule { }
+export class ProductsPageModule { }

@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomersPageComponent } from './customers-page.component';
-import { SharedModule } from '../shared/shared.module';
+import { SignInPageComponent } from './sign-in-page.component';
 import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    CustomersPageComponent
+    SignInPageComponent
   ],
   imports: [
     CommonModule,
-    SharedModule,
     FormsModule
   ]
 })
-export class CustomersPageModule { }
+export class SignInPageModule { }

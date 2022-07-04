@@ -3,41 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
-import { HomeContentComponent } from './home-content/home-content.component';
-import { FormsModule } from '@angular/forms';
-import { InventoryPageComponent } from './inventory-page/inventory-page.component';
-import { CustomersPageComponent } from './customers-page/customers-page.component';
-import { ProductsPageComponent } from './products-page/products-page.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { FormModalComponent } from './form-modal/form-modal.component';
+import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './home/home.module';
+import { CustomersPageModule } from './customers-page/customers-page.module';
+import { ProductsPageModule } from './products-page/products-page.module';
+import { InventoryPageModule } from './inventory-page/inventory-page.module';
+import { OverviewPageModule } from './overview-page/overview-page.module';
+import { SignInPageModule } from './sign-in-page/sign-in-page.module';
 import { SecurityService } from './services/security.service';
-import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { ErrorPageModule } from './error-page/error-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    FooterComponent,
-    HeaderComponent,
-    SignInPageComponent,
-    HomeContentComponent,
-    InventoryPageComponent,
-    CustomersPageComponent,
-    ProductsPageComponent,
-    DataTableComponent,
-    FormModalComponent,
-    OverviewPageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    SharedModule,
+    HomeModule,
+    CustomersPageModule,
+    ProductsPageModule,
+    InventoryPageModule,
+    OverviewPageModule,
+    SignInPageModule,
+    ErrorPageModule
   ],
-  providers: [SecurityService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
