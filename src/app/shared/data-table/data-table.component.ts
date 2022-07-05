@@ -9,6 +9,7 @@ export class DataTableComponent implements OnInit {
 
   @Input() tableHeads: string[] = ['not', 'initialised', 'tableHeads', 'undefined'];
 
+  @Input() data: any = {"1": {"customer": "data", "name": "data", "address": "data", "Phone Number": "data" }}
 
   constructor() { }
 

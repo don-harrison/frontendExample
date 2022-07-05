@@ -12,6 +12,9 @@ import { OverviewPageModule } from './overview-page/overview-page.module';
 import { SignInPageModule } from './sign-in-page/sign-in-page.module';
 import { SecurityService } from './services/security.service';
 import { ErrorPageModule } from './error-page/error-page.module';
+import { DragAndDropComponent } from './shared/drag-and-drop/drag-and-drop.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { ErrorPageModule } from './error-page/error-page.module';
     InventoryPageModule,
     OverviewPageModule,
     SignInPageModule,
-    ErrorPageModule
+    ErrorPageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

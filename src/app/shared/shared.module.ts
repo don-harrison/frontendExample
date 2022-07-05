@@ -5,26 +5,30 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
-
-
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MaterialExampleModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
     DataTableComponent,
     FormModalComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DragAndDropComponent
     ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialExampleModule
   ],
   providers: [],
   exports: [
     DataTableComponent,
     FormModalComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DragAndDropComponent
   ]
 })
 export class SharedModule { }
