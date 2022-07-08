@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MaterialExampleModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialExampleModule } from '../material/material.module';
   imports: [
     CommonModule,
     AppRoutingModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    ReactiveFormsModule
   ],
   providers: [],
   exports: [
