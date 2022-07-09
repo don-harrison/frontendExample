@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-data-table',
@@ -13,42 +12,54 @@ export class DataTableComponent implements OnInit, OnChanges {
   {"customer": "data", "name": "data", "address": "data", "Phone Number": "data", "email": "data" }
   ];
 
-  public newData!: FormArray;
+  public newData: Array<any> = [];
+  public newRow: any = {};
 
   constructor() { 
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("changes");
     console.log(this.newData);
   }
 
+  //
   ngOnInit(): void {
-    console.log(this.data);
+    this.newData = structuredClone(this.data);
 
-    let formControls = []
-
-    for(let head in this.getDataHead()){
-      formControls.push(new FormControl(head))
-    }
-
-    this.newData = new FormArray(formControls);
     console.log(this.newData);
   }
 
-  *getDataHead() {
+  deleteRow(index: number) {
+    this.newData = [...this.newData.slice(0, index), ...this.newData.slice(index + 1)];
+  }
+
+  getDataHead() {
+    let head = []
     for(let item in this.data[0]){
-      yield item;
+      head.push(item);
     }
+    return head;
   }
 
-  *getDataElements(row: any) {
-    for(let item in row){
-      yield row[item];
+  getObjValues(obj: any) {
+    let values = []
+    for(let item in obj){
+      values.push(obj[item]);
     }
+    return values;
   }
 
-  addRow(){
+  inputChange() {
+    console.log(this.newData);
   }
 
+  addRow() {
+    this.newData = [this.newRow, ...this.newData];
+    this.newRow = {};
+    console.log(this.newData);
+  }
+
+  // getFormElement(rowIndex: number, colIndex: number) {
+  //   return this.newData[rowIndex].controls[colIndex];
+  // }
 }

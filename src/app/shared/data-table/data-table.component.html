@@ -10,24 +10,26 @@
         <tr>
             <th *ngFor="let head of getDataHead()" scope="row">
               <!-- <label class="sr-only" for="inlineFormInputName2">{{head}}</label> -->
-              <input type="text" class="form-control mb-2 mr-sm-2" id="{{head}}-new-input" placeholder="{{head}}">
+              <input type="text" [(ngModel)]="newRow[head]" class="form-control mb-2 mr-sm-2" id="{{head}}-new-input" placeholder="{{head}}">
             </th>
           <th>
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" (click)="addRow()">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                 </svg>
             </button>
           </th>
+        </tr>
+
+        <tr *ngFor="let row of newData; index as i;">
+          <th *ngFor="let item of getDataHead(); index as j" scope="row">
+            <input type="text" [(ngModel)]="newData[i][item]" (change)="inputChange()" class="form-control mb-2 mr-sm-2">
+          </th>
           <th>
-            <button class="btn btn-primary btn-danger">
+            <button class="btn btn-primary btn-danger" (click)="deleteRow(i)">
               x
             </button>
           </th>
-        </tr>
-
-        <tr *ngFor="let row of data; index as i;">
-          <th *ngFor="let item of getDataElements(row)" scope="row">{{item}}</th>
         </tr>
       </tbody>
     </table>
