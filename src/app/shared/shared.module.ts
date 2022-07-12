@@ -9,6 +9,7 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MaterialExampleModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
+import { SubmitButtonComponent } from './submit-button/submit-button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     FormModalComponent,
     HeaderComponent,
     FooterComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    SubmitButtonComponent
     ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     FormModalComponent,
     HeaderComponent,
     FooterComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    SubmitButtonComponent
   ]
 })
 export class SharedModule { }

@@ -1,34 +1,4 @@
 <app-header></app-header>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria- 
-  labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel">Add New Customer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" 
-       aria-label="Close"></button>
-      </div>
-      <form class="text-center form-signin">
-        <div class="form-floating">
-          <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control" id="floatingInput" placeholder="Product Name">
-          <label for="floatingInput">Name</label>
-        </div>
-        <div class="form-floating">
-          <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="floatingInput" placeholder="example@email.com">
-          <label for="floatingInput">Email</label>
-        </div>
-        <div class="form-floating">
-            <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="form-control" id="floatingInput" placeholder="123 Example St. City, State. 999999">
-            <label for="floatingInput">Address</label>
-          </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit" data-bs-dismiss="modal">Submit</button>
-      </form>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal"> Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<app-data-table></app-data-table>
+<app-data-table [table-data]="customers" (data-out)="dataChange($event)"></app-data-table>
+<app-submit-button [submitData]="submitData"></app-submit-button>
 <app-footer></app-footer>

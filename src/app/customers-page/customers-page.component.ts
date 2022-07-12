@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { app } from '../app';
 
 @Component({
   selector: 'app-customers-page',
@@ -7,13 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersPageComponent implements OnInit {
 
-  email: any;
-  name: any;
-  address: any;
+  data: any;
+
+  customers: app.CustomerData[] = [{"customerId": "data", "name": "data", "address": "data", "phoneNumber": "data", "email": "data" },
+  {"customerId": "data", "name": "data", "address": "data", "phoneNumber": "data", "email": "data" },
+  {"customerId": "data", "name": "data", "address": "data", "phoneNumber": "data", "email": "data" }
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  submitData(): void{
+    console.log(this.customers);
+  }
+
+  dataChange(data: any) {
+    this.data = data;
+    console.log(data);
+  }
 }

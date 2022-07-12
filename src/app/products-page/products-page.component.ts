@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsPageComponent implements OnInit {
 
-  name: any;
-
-  price: any;
+  products: any
 
   constructor() { }
 
   ngOnInit(): void {
+    this.products = [{"product": "data", "price": "data", "location": "data"},
+    {"product": "data", "price": "data", "location": "data"},
+    {"product": "data", "price": "data", "location": "data"}
+    ];
   }
 
 }

@@ -23,7 +23,7 @@
 
         <tr *ngFor="let row of newData; index as i;">
           <th *ngFor="let item of getDataHead(); index as j" scope="row">
-            <input type="text" [(ngModel)]="newData[i][item]" (change)="inputChange()" class="form-control mb-2 mr-sm-2">
+            <input type="text" [(ngModel)]="newData[i][item]" class="form-control mb-2 mr-sm-2">
           </th>
           <th>
             <button class="btn btn-primary btn-danger" (click)="deleteRow(i)">
@@ -33,12 +33,5 @@
         </tr>
       </tbody>
     </table>
-  </div>
-</div>
-<div class="row justify-content-end">
-  <div class="col col-lg-2">
-      <button type="button" class="btn btn-primary">
-          Submit
-      </button>
   </div>
 </div>

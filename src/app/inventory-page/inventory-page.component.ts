@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryPageComponent implements OnInit {
 
+  inventory: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.inventory = [{"product": "data", "price": "data", "location": "data", "stock": "data"},
+    {"product": "data", "price": "data", "location": "data", "stock": "data"},
+    {"product": "data", "price": "data", "location": "data", "stock": "data"}
+    ];
   }
 
 }

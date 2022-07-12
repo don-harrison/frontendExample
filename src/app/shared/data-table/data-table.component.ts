@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-data-table',
@@ -6,36 +6,35 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit, OnChanges {
+  @Output('data-out') dataOut = new EventEmitter<any[]>();
+  @Input('table-data') dataIn!: any[];
 
-  @Input() data: any = [{"customer": "data", "name": "data", "address": "data", "Phone Number": "data", "email": "data" },
-  {"customer": "data", "name": "data", "address": "data", "Phone Number": "data", "email": "data" },
-  {"customer": "data", "name": "data", "address": "data", "Phone Number": "data", "email": "data" }
-  ];
+  @Input('read-only-cols') cols?: string[];
 
   public newData: Array<any> = [];
   public newRow: any = {};
 
-  constructor() { 
-  }
-  
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.newData);
-  }
-
+  constructor() {}
+    
   //
   ngOnInit(): void {
-    this.newData = structuredClone(this.data);
-
-    console.log(this.newData);
+    this.newData = structuredClone(this.dataIn);
   }
+
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    this.dataOut.emit(this.newData);
+  }
+
 
   deleteRow(index: number) {
     this.newData = [...this.newData.slice(0, index), ...this.newData.slice(index + 1)];
+    this.dataOut.emit(this.newData);
   }
 
   getDataHead() {
     let head = []
-    for(let item in this.data[0]){
+    for(let item in this.dataIn[0]){
       head.push(item);
     }
     return head;
@@ -49,14 +48,10 @@ export class DataTableComponent implements OnInit, OnChanges {
     return values;
   }
 
-  inputChange() {
-    console.log(this.newData);
-  }
-
   addRow() {
     this.newData = [this.newRow, ...this.newData];
     this.newRow = {};
-    console.log(this.newData);
+    this.dataOut.emit(this.newData);
   }
 
   // getFormElement(rowIndex: number, colIndex: number) {
