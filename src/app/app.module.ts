@@ -15,6 +15,7 @@ import { ErrorPageModule } from './error-page/error-page.module';
 import { DragAndDropComponent } from './shared/drag-and-drop/drag-and-drop.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatSliderModule } from '@angular/material/slider';
     OverviewPageModule,
     SignInPageModule,
     ErrorPageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

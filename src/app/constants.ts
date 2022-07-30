@@ -1,5 +1,5 @@
 export class Constants {
-    static serviceBase = "localhost:49152"
+    static serviceBase = "localhost:8080"
 
     static get serviceUrl() {
         return this.serviceBase + ""

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-products-page',
@@ -9,13 +10,15 @@ export class ProductsPageComponent implements OnInit {
 
   products: any
 
-  constructor() { }
+  readOnlyCols: number[] = []
+
+  constructor(private backendService: BackendService) { }
 
   ngOnInit(): void {
-    this.products = [{"product": "data", "price": "data", "location": "data"},
-    {"product": "data", "price": "data", "location": "data"},
-    {"product": "data", "price": "data", "location": "data"}
-    ];
-  }
+    this.backendService.getProducts().subscribe(products => {
+      this.products = products;
+    });
 
+    this.readOnlyCols = this.backendService.getReadOnlyCols("products");
+  }
 }

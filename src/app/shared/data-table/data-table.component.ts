@@ -9,10 +9,11 @@ export class DataTableComponent implements OnInit, OnChanges {
   @Output('data-out') dataOut = new EventEmitter<any[]>();
   @Input('table-data') dataIn!: any[];
 
-  @Input('read-only-cols') cols?: string[];
+  @Input('read-only-cols') readOnlyCols?: number[];
 
   public newData: Array<any> = [];
   public newRow: any = {};
+  public newRows: any[] = [];
 
   constructor() {}
     
@@ -50,8 +51,22 @@ export class DataTableComponent implements OnInit, OnChanges {
 
   addRow() {
     this.newData = [this.newRow, ...this.newData];
+    this.newRows.push(this.newRow);
+
     this.newRow = {};
     this.dataOut.emit(this.newData);
+  }
+
+  isReadOnly(colNum: number){
+    if(this.readOnlyCols){
+      return (this.readOnlyCols.filter(index => index === colNum).length > 0)
+    } else {
+      return false;
+    }
+  }
+
+  isRowReadOnly(row: {}) {
+    this.newRows.find(newRow => newRow === row)
   }
 
   // getFormElement(rowIndex: number, colIndex: number) {

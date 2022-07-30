@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { app } from '../app';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-customers-page',
@@ -10,14 +12,18 @@ export class CustomersPageComponent implements OnInit {
 
   data: any;
 
-  customers: app.CustomerData[] = [{"customerId": "data", "name": "data", "address": "data", "phoneNumber": "data", "email": "data" },
-  {"customerId": "data", "name": "data", "address": "data", "phoneNumber": "data", "email": "data" },
-  {"customerId": "data", "name": "data", "address": "data", "phoneNumber": "data", "email": "data" }
-  ];
+  customers: app.CustomerData[] = [];
 
-  constructor() { }
+  readOnlyCols: number[] = []
+
+  constructor(private backendService: BackendService) { }
 
   ngOnInit(): void {
+    this.backendService.getCustomers().subscribe(customers => {
+      this.customers = customers;
+    })
+
+    this.readOnlyCols = this.backendService.getReadOnlyCols("customers");
   }
 
   submitData(): void{
@@ -26,6 +32,5 @@ export class CustomersPageComponent implements OnInit {
 
   dataChange(data: any) {
     this.data = data;
-    console.log(data);
   }
 }

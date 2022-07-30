@@ -1,4 +1,6 @@
 <app-header></app-header>
-<app-data-table [table-data]="customers" (data-out)="dataChange($event)"></app-data-table>
+<app-data-table [table-data]="customers" 
+                (data-out)="dataChange($event)" 
+                [read-only-cols]="readOnlyCols"></app-data-table>
 <app-submit-button [submitData]="submitData"></app-submit-button>
 <app-footer></app-footer>
